@@ -73,7 +73,7 @@ function Home() {
             <div className="hidden md:flex absolute -top-6 -right-6 bg-card rounded-2xl shadow-soft p-5 items-center gap-3">
               <div className="p-3 rounded-full bg-sun/30 text-secondary"><Sparkles className="w-5 h-5" /></div>
               <div>
-                <div className="font-bold text-2xl text-secondary">4</div>
+                <div className="font-bold text-2xl text-secondary">5</div>
                 <div className="text-xs text-muted-foreground">Therapy programs</div>
               </div>
             </div>
@@ -106,7 +106,7 @@ function Home() {
             <h2 className="mt-3 text-3xl md:text-5xl font-bold text-secondary">Care designed around every child</h2>
             <p className="mt-4 text-muted-foreground">A multi-disciplinary approach delivered by trained professionals who believe in every child's potential.</p>
           </div>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {services.map((s) => (
               <div key={s.title} className="rounded-3xl bg-card border border-border p-6 hover:shadow-soft transition">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${s.color}`}>
