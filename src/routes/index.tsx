@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Sparkles, Users, ArrowRight, Quote, MessageCircle, Brain, Puzzle, Activity } from "lucide-react";
+import { Heart, Sparkles, Users, ArrowRight, Quote, MessageCircle, Brain, Puzzle, BookOpen, Briefcase } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import heroChild from "@/assets/hero-child.jpg";
 import handsCare from "@/assets/hands-care.jpg";
@@ -23,7 +23,8 @@ const services = [
   { icon: MessageCircle, title: "Speech Therapy", desc: "Improves communication skills, language development and confidence.", color: "text-sky bg-sky/10" },
   { icon: Brain, title: "Behaviour Therapy", desc: "Builds positive behaviour, social skills and emotional well-being.", color: "text-emerald-600 bg-emerald-500/10" },
   { icon: Puzzle, title: "Occupational Therapy", desc: "Enhances daily living skills, focus and independence.", color: "text-orange-600 bg-orange-500/10" },
-  { icon: Activity, title: "Pediatric Physiotherapy", desc: "Improves strength, mobility, posture and physical development.", color: "text-primary bg-primary/10" },
+  { icon: BookOpen, title: "Special Education", desc: "Individualised learning plans for literacy, numeracy and cognitive growth.", color: "text-primary bg-primary/10" },
+  { icon: Briefcase, title: "Pre-Vocational Training", desc: "Prepares young adults for meaningful work and independent living.", color: "text-secondary bg-secondary/10" },
 ];
 
 function Home() {
