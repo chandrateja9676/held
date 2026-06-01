@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Heart, Sparkles, Users, ArrowRight, Quote, MessageCircle, Brain, Puzzle, Activity } from "lucide-react";
+import { Heart, Sparkles, Users, ArrowRight, Quote, MessageCircle, Brain, Puzzle, BookOpen, Briefcase } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import heroChild from "@/assets/hero-child.jpg";
 import handsCare from "@/assets/hands-care.jpg";
@@ -23,7 +23,8 @@ const services = [
   { icon: MessageCircle, title: "Speech Therapy", desc: "Improves communication skills, language development and confidence.", color: "text-sky bg-sky/10" },
   { icon: Brain, title: "Behaviour Therapy", desc: "Builds positive behaviour, social skills and emotional well-being.", color: "text-emerald-600 bg-emerald-500/10" },
   { icon: Puzzle, title: "Occupational Therapy", desc: "Enhances daily living skills, focus and independence.", color: "text-orange-600 bg-orange-500/10" },
-  { icon: Activity, title: "Pediatric Physiotherapy", desc: "Improves strength, mobility, posture and physical development.", color: "text-primary bg-primary/10" },
+  { icon: BookOpen, title: "Special Education", desc: "Individualised learning plans for literacy, numeracy and cognitive growth.", color: "text-primary bg-primary/10" },
+  { icon: Briefcase, title: "Pre-Vocational Training", desc: "Prepares young adults for meaningful work and independent living.", color: "text-secondary bg-secondary/10" },
 ];
 
 function Home() {
@@ -72,7 +73,7 @@ function Home() {
             <div className="hidden md:flex absolute -top-6 -right-6 bg-card rounded-2xl shadow-soft p-5 items-center gap-3">
               <div className="p-3 rounded-full bg-sun/30 text-secondary"><Sparkles className="w-5 h-5" /></div>
               <div>
-                <div className="font-bold text-2xl text-secondary">4</div>
+                <div className="font-bold text-2xl text-secondary">5</div>
                 <div className="text-xs text-muted-foreground">Therapy programs</div>
               </div>
             </div>
@@ -105,7 +106,7 @@ function Home() {
             <h2 className="mt-3 text-3xl md:text-5xl font-bold text-secondary">Care designed around every child</h2>
             <p className="mt-4 text-muted-foreground">A multi-disciplinary approach delivered by trained professionals who believe in every child's potential.</p>
           </div>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {services.map((s) => (
               <div key={s.title} className="rounded-3xl bg-card border border-border p-6 hover:shadow-soft transition">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${s.color}`}>

@@ -2,14 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHero } from "@/components/site/Layout";
 import speech from "@/assets/therapy-speech.jpg";
 import occ from "@/assets/therapy-occupational.jpg";
-import phys from "@/assets/therapy-physio.jpg";
 import beh from "@/assets/therapy-behaviour.jpg";
+import specialEd from "@/assets/therapy-special-education.jpg";
+import preVoc from "@/assets/therapy-prevocational.jpg";
 
 export const Route = createFileRoute("/therapies")({
   head: () => ({
     meta: [
       { title: "Our Therapies — Held With Love Foundation" },
-      { name: "description", content: "Speech, behaviour, occupational and pediatric physiotherapy programs designed for every child's growth." },
+      { name: "description", content: "Speech, behaviour, occupational therapy, special education and pre-vocational training designed for every child's growth." },
       { property: "og:title", content: "Our Therapy Services" },
       { property: "og:description", content: "Multi-disciplinary care for children — funded by your generosity." },
       { property: "og:url", content: "/therapies" },
@@ -23,13 +24,14 @@ const items = [
   { img: speech, title: "Speech Therapy", body: "We help children find their voice — strengthening language, articulation, comprehension and the confidence to communicate with the world.", points: ["Articulation & clarity", "Language development", "Social communication"] },
   { img: beh, title: "Behaviour Therapy", body: "Through positive reinforcement and structured care, we nurture emotional regulation, social skills and lasting well-being.", points: ["Positive reinforcement", "Emotional regulation", "Social skills"] },
   { img: occ, title: "Occupational Therapy", body: "We build daily-living independence — fine motor skills, focus, sensory integration and the confidence that comes with doing it yourself.", points: ["Fine motor skills", "Sensory integration", "Independence in daily tasks"] },
-  { img: phys, title: "Pediatric Physiotherapy", body: "From early movement to lasting strength, our physiotherapy programs support posture, mobility and physical development at every stage.", points: ["Strength & mobility", "Posture & balance", "Developmental milestones"] },
+  { img: specialEd, title: "Special Education", body: "Individualised learning plans meet each child where they are — building literacy, numeracy and cognitive skills at a pace that honours their unique journey.", points: ["Individualised learning plans", "Literacy & numeracy foundations", "Cognitive & academic skills"] },
+  { img: preVoc, title: "Pre-Vocational Training", body: "We prepare adolescents and young adults for meaningful work and independent living — building practical skills, confidence and a sense of purpose.", points: ["Functional life skills", "Work-readiness & task training", "Confidence & independence"] },
 ];
 
 function Therapies() {
   return (
     <Layout>
-      <PageHero eyebrow="Programs" title="Therapy that meets every child where they are." subtitle="Four core programs, delivered by trained therapists, funded by our community of donors and volunteers." />
+      <PageHero eyebrow="Programs" title="Therapy that meets every child where they are." subtitle="Five core programs, delivered by trained therapists and educators, funded by our community of donors and volunteers." />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-20">
         {items.map((it, i) => (
