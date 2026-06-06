@@ -41,8 +41,8 @@ function Contact() {
         <div className="space-y-6">
           {[
             { icon: Phone, label: "Call us", value: "99947 08749" },
-            { icon: Mail, label: "Email", value: "hello@heldwithlove.org" },
-            { icon: MapPin, label: "Location", value: "Tamil Nadu, India" },
+            { icon: Mail, label: "Email", value: "hello@heldwithlovefoundation.org" },
+            { icon: MapPin, label: "Location", value: "Andhra Pradesh, India" },
           ].map((c) => (
             <div key={c.label} className="rounded-3xl bg-card border border-border p-6 flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl gradient-brand text-primary-foreground flex items-center justify-center shrink-0">

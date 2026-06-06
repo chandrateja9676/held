@@ -34,8 +34,8 @@ export function Footer() {
           <h4 className="font-display font-semibold mb-4 text-sun">Contact</h4>
           <ul className="space-y-3 text-sm text-secondary-foreground/80">
             <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5" /> 99947 08749</li>
-            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5" /> hello@heldwithlove.org</li>
-            <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5" /> Tamil Nadu, India</li>
+            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5" /> hello@heldwithlovefoundation.org</li>
+            <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5" /> Andhra Pradesh, India</li>
           </ul>
           <Link to="/donate" className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full gradient-sun text-secondary font-semibold">
             <Heart className="w-4 h-4 fill-current" /> Donate Now
