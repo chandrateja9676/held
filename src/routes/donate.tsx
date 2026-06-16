@@ -110,9 +110,9 @@ function Donate() {
             </p>
             <div className="mt-5 rounded-2xl bg-white/10 p-5">
               <CopyRow label="Account Name" value="Held With Love Foundation" />
-              <CopyRow label="Account Number" value="1234 5678 9012" />
-              <CopyRow label="IFSC" value="HDFC0001234" />
-              <CopyRow label="UPI ID" value="heldwithlove@upi" />
+              <CopyRow label="Account Number" value="4932010000000150" />
+              <CopyRow label="IFSC" value="KVBL0004932" />
+              <CopyRow label="UPI ID" value="hwlfoundation@oksbi" />
             </div>
           </div>
 
