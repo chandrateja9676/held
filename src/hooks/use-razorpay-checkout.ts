@@ -20,6 +20,20 @@ function loadRazorpayScript(): Promise<boolean> {
   });
 }
 
+async function fetchRazorpayClientKey() {
+  try {
+    const response = await fetch("/api/payment-config");
+    if (!response.ok) {
+      return null;
+    }
+
+    const data = (await response.json()) as { keyId?: string };
+    return typeof data.keyId === "string" ? data.keyId : null;
+  } catch {
+    return null;
+  }
+}
+
 type CheckoutOptions = {
   amountInPaise: number;
   description?: string;
@@ -29,7 +43,10 @@ export function useRazorpayCheckout() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const startCheckout = useCallback(async ({ amountInPaise, description }: CheckoutOptions) => {
-    const keyId = import.meta.env.VITE_RAZORPAY_KEY_ID;
+    let keyId = import.meta.env.VITE_RAZORPAY_KEY_ID;
+    if (!keyId) {
+      keyId = await fetchRazorpayClientKey();
+    }
 
     if (!keyId) {
       toast.error("Payment is not configured. Please contact support.");
