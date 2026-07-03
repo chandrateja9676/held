@@ -6,6 +6,7 @@
   "main": "src/server.ts",
   "vars": {
     "RAZORPAY_KEY_ID": "rzp_live_T8jKzVx7qiM8kq",
+    "VITE_RAZORPAY_KEY_ID": "rzp_live_T8jKzVx7qiM8kq",
     "RAZORPAY_KEY_SECRET": "AijISUuauT8SrsHp18uOkEgG"
   }
 }
