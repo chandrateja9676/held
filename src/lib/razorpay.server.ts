@@ -47,7 +47,7 @@ function normalizeRazorpayError(error: unknown): RazorpayError {
   return { message: "Failed to create Razorpay order" };
 }
 
-function getRazorpayErrorMessage(error: unknown): string {
+export function getRazorpayErrorMessage(error: unknown): string {
   const razorpayError = normalizeRazorpayError(error);
   return (
     razorpayError.error?.description ??
