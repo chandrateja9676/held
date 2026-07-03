@@ -4,4 +4,8 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "vars": {
+    "RAZORPAY_KEY_ID": "rzp_live_T8jKzVx7qiM8kq",
+    "RAZORPAY_KEY_SECRET": "AijISUuauT8SrsHp18uOkEgG"
+  }
 }

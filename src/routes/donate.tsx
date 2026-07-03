@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout, PageHero } from "@/components/site/Layout";
+import { useRazorpayCheckout } from "@/hooks/use-razorpay-checkout";
 import { Heart, Sparkles, Phone, Mail, Building2, Copy, Check } from "lucide-react";
 
 export const Route = createFileRoute("/donate")({
@@ -41,6 +42,21 @@ function CopyRow({ label, value }: { label: string; value: string }) {
 function Donate() {
   const [amount, setAmount] = useState<number>(2500);
   const [custom, setCustom] = useState("");
+  const { startCheckout, isProcessing } = useRazorpayCheckout();
+
+  const donationAmount = Number(custom) || amount;
+  const amountInPaise = Math.round(donationAmount * 100);
+
+  const handleDonate = () => {
+    if (donationAmount < 1) {
+      return;
+    }
+
+    void startCheckout({
+      amountInPaise,
+      description: `Donation of ₹${donationAmount.toLocaleString()}`,
+    });
+  };
 
   return (
     <Layout>
@@ -91,8 +107,14 @@ function Donate() {
             </div>
           </div>
 
-          <button className="mt-6 w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full gradient-brand text-primary-foreground font-bold text-lg shadow-soft hover:scale-[1.01] transition">
-            <Sparkles className="w-5 h-5" /> Donate ₹{(Number(custom) || amount).toLocaleString()}
+          <button
+            type="button"
+            onClick={handleDonate}
+            disabled={isProcessing || donationAmount < 1}
+            className="mt-6 w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full gradient-brand text-primary-foreground font-bold text-lg shadow-soft hover:scale-[1.01] transition disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
+          >
+            <Sparkles className="w-5 h-5" />
+            {isProcessing ? "Processing…" : `Donate ₹${donationAmount.toLocaleString()}`}
           </button>
           <p className="mt-3 text-xs text-center text-muted-foreground">
             You will be guided through a secure payment process. Tax receipt issued under 80G & 12A.
