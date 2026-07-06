@@ -12,18 +12,26 @@ type RazorpayError = {
 };
 
 function getCredentials(env: unknown) {
-  if (!env || typeof env !== "object") {
-    return null;
-  }
+ function getCredentials(env: unknown) {
+  // 1. Create a safe reference to the passed env object, or fall back to global process.env
+  const targetEnv = (env && typeof env === "object" ? env : {}) as Record<string, unknown>;
+  
+  // Also check global process.env if available (useful for traditional Node/Vite environments)
+  const globalEnv = typeof process !== "undefined" && process.env ? process.env : {};
 
-  const razorpayEnv = env as RazorpayEnv;
-  const keyId = razorpayEnv.RAZORPAY_KEY_ID ?? razorpayEnv.VITE_RAZORPAY_KEY_ID;
-  const keySecret = razorpayEnv.RAZORPAY_KEY_SECRET ?? razorpayEnv.VITE_RAZORPAY_KEY_SECRET;
+  // 2. Coalesce across all possible places the keys could hide
+  const keyId = 
+    (targetEnv.RAZORPAY_KEY_ID ?? targetEnv.VITE_RAZORPAY_KEY_ID ?? globalEnv.RAZORPAY_KEY_ID ?? globalEnv.VITE_RAZORPAY_KEY_ID);
+    
+  const keySecret = 
+    (targetEnv.RAZORPAY_KEY_SECRET ?? targetEnv.VITE_RAZORPAY_KEY_SECRET ?? globalEnv.RAZORPAY_KEY_SECRET ?? globalEnv.VITE_RAZORPAY_KEY_SECRET);
 
+  // 3. Strict type validation
   if (typeof keyId !== "string" || typeof keySecret !== "string") {
     return null;
   }
 
+  // 4. Safety Guard rails
   if (import.meta.env.PROD && keyId.startsWith("rzp_test_")) {
     throw new Error("Test Razorpay keys cannot be used in production");
   }
