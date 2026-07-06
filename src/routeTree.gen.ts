@@ -19,6 +19,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiVerifyPaymentRouteImport } from './routes/api/verify-payment'
+import { Route as ApiPaymentConfigRouteImport } from './routes/api/payment-config'
 import { Route as ApiCreateOrderRouteImport } from './routes/api/create-order'
 
 const TherapiesRoute = TherapiesRouteImport.update({
@@ -71,6 +72,11 @@ const ApiVerifyPaymentRoute = ApiVerifyPaymentRouteImport.update({
   path: '/api/verify-payment',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPaymentConfigRoute = ApiPaymentConfigRouteImport.update({
+  id: '/api/payment-config',
+  path: '/api/payment-config',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCreateOrderRoute = ApiCreateOrderRouteImport.update({
   id: '/api/create-order',
   path: '/api/create-order',
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/therapies': typeof TherapiesRoute
   '/api/create-order': typeof ApiCreateOrderRoute
+  '/api/payment-config': typeof ApiPaymentConfigRoute
   '/api/verify-payment': typeof ApiVerifyPaymentRoute
 }
 export interface FileRoutesByTo {
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/therapies': typeof TherapiesRoute
   '/api/create-order': typeof ApiCreateOrderRoute
+  '/api/payment-config': typeof ApiPaymentConfigRoute
   '/api/verify-payment': typeof ApiVerifyPaymentRoute
 }
 export interface FileRoutesById {
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/therapies': typeof TherapiesRoute
   '/api/create-order': typeof ApiCreateOrderRoute
+  '/api/payment-config': typeof ApiPaymentConfigRoute
   '/api/verify-payment': typeof ApiVerifyPaymentRoute
 }
 export interface FileRouteTypes {
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/therapies'
     | '/api/create-order'
+    | '/api/payment-config'
     | '/api/verify-payment'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/therapies'
     | '/api/create-order'
+    | '/api/payment-config'
     | '/api/verify-payment'
   id:
     | '__root__'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/therapies'
     | '/api/create-order'
+    | '/api/payment-config'
     | '/api/verify-payment'
   fileRoutesById: FileRoutesById
 }
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TherapiesRoute: typeof TherapiesRoute
   ApiCreateOrderRoute: typeof ApiCreateOrderRoute
+  ApiPaymentConfigRoute: typeof ApiPaymentConfigRoute
   ApiVerifyPaymentRoute: typeof ApiVerifyPaymentRoute
 }
 
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiVerifyPaymentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/payment-config': {
+      id: '/api/payment-config'
+      path: '/api/payment-config'
+      fullPath: '/api/payment-config'
+      preLoaderRoute: typeof ApiPaymentConfigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/create-order': {
       id: '/api/create-order'
       path: '/api/create-order'
@@ -266,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TherapiesRoute: TherapiesRoute,
   ApiCreateOrderRoute: ApiCreateOrderRoute,
+  ApiPaymentConfigRoute: ApiPaymentConfigRoute,
   ApiVerifyPaymentRoute: ApiVerifyPaymentRoute,
 }
 export const routeTree = rootRouteImport

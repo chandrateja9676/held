@@ -1,6 +1,8 @@
 type RazorpayEnv = Record<string, unknown> & {
   RAZORPAY_KEY_ID?: string;
   RAZORPAY_KEY_SECRET?: string;
+  VITE_RAZORPAY_KEY_ID?: string;
+  VITE_RAZORPAY_KEY_SECRET?: string;
 };
 
 type RazorpayError = {
@@ -14,8 +16,9 @@ function getCredentials(env: unknown) {
     return null;
   }
 
-  const keyId = (env as RazorpayEnv).RAZORPAY_KEY_ID;
-  const keySecret = (env as RazorpayEnv).RAZORPAY_KEY_SECRET;
+  const razorpayEnv = env as RazorpayEnv;
+  const keyId = razorpayEnv.RAZORPAY_KEY_ID ?? razorpayEnv.VITE_RAZORPAY_KEY_ID;
+  const keySecret = razorpayEnv.RAZORPAY_KEY_SECRET ?? razorpayEnv.VITE_RAZORPAY_KEY_SECRET;
 
   if (typeof keyId !== "string" || typeof keySecret !== "string") {
     return null;
