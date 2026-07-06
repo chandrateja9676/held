@@ -11,7 +11,6 @@ type RazorpayError = {
   message?: string;
 };
 
-function getCredentials(env: unknown) {
  function getCredentials(env: unknown) {
   // 1. Create a safe reference to the passed env object, or fall back to global process.env
   const targetEnv = (env && typeof env === "object" ? env : {}) as Record<string, unknown>;
