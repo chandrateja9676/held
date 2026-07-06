@@ -11,6 +11,8 @@ export const Route = createFileRoute("/api/create-order")({
   server: {
     handlers: {
       POST: async ({ request, env }) => {
+        console.log("Available env keys:", Object.keys(env || {}));
+  console.log("Razorpay ID present?:", !!env?.RAZORPAY_KEY_ID);
         let body: { amount?: unknown; currency?: string; receipt?: string };
 
         try {
